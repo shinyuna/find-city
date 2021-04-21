@@ -5,17 +5,22 @@ const GlobalStyle = createGlobalStyle`
   * {
     padding: 0;
     margin: 0;
-  }
-  body {
     box-sizing: border-box;
-    color: ${props => (props.theme === 'purple' ? 'purple' : 'white')};
   }
 `;
 
-const Container = styled.div`
+const Wrap = styled.div`
+  display: flex;
+  align-items: center;
   width: 400px;
   height: 100vh;
   margin: 0 auto;
+  flex: 0;
+`;
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
 `;
 
 interface IProps {
@@ -25,8 +30,10 @@ interface IProps {
 const Layout: React.FC<IProps> = ({ children }) => {
   return (
     <React.Fragment>
-      <GlobalStyle theme="purple" />
-      <Container>{children}</Container>;
+      <GlobalStyle />
+      <Wrap>
+        <Container>{children}</Container>
+      </Wrap>
     </React.Fragment>
   );
 };
