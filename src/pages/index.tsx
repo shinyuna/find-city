@@ -25,7 +25,7 @@ const Title = styled.h1`
 `;
 const Button = styled(props => <Link {...props} />)`
   display: block;
-  width: 80%;
+  width: 75%;
   padding: 1em;
   border: none;
   border-radius: 5em;
@@ -64,7 +64,7 @@ const IndexPage: React.VFC = () => {
             <span>도시</span>로 <br />
             <span>표현</span>한다면?
           </Title>
-          <Button to="/question/">나랑 찰떡궁합 도시 알아보기</Button>
+          <Button to="/qna/">나랑 찰떡궁합 도시 알아보기</Button>
         </LadingTop>
         <LandingBottom />
       </Lading>
