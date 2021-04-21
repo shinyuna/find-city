@@ -1,6 +1,6 @@
-import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import React from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -17,7 +17,7 @@ const Wrap = styled.div`
   margin: 0 auto;
   flex: 0;
 `;
-const Container = styled.div`
+const Container = styled.main`
   width: 100%;
   height: 100%;
   max-height: 800px;
