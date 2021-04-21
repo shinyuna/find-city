@@ -1,10 +1,10 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
-  * {
-    padding: 0;
-    margin: 0;
+  ${reset}
+  div {
     box-sizing: border-box;
   }
 `;
