@@ -13,7 +13,7 @@ const QnA = styled.div`
 `;
 
 const QnqPage: React.VFC = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(1);
+  const [current, setCurrent] = useState(1);
   const {
     questions: { edges: questionList },
   } = useStaticQuery(graphql`
@@ -35,7 +35,7 @@ const QnqPage: React.VFC = () => {
         <title>찰떡궁합 도시 찾는중</title>
       </Helmet>
       <QnA>
-        <StatusBar totalCount={totalCount} currentCount={} />
+        <StatusBar totalCount={totalCount} currentCount={current} />
       </QnA>
     </Layout>
   );
