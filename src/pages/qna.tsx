@@ -77,16 +77,14 @@ const QnaPage: React.VFC = () => {
   const questionList = data.questions.nodes;
   const totalCount: number = questionList.length;
 
-  const getRandomInt = (min: number, max: number) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min)) + min;
+  const getRandomInt = (max: number) => {
+    return Math.floor(Math.random() * max) + 1;
   };
   const onSelect = useCallback(
     (e: React.BaseSyntheticEvent) => {
       const selectAnswer: number = e.target.id;
       if (current === totalCount) {
-        const cityId = getRandomInt(1, cityList.length);
+        const cityId = getRandomInt(cityList.length);
         return navigate(`/result?city=${cityList[cityId].name}`);
       }
       setAnimation(false);
