@@ -11,18 +11,20 @@ interface IStyleProps {
   current: number;
 }
 
+const StatusBox = styled.div`
+  flex: 1;
+`;
 const Status = styled.div`
-  position: relative;
   width: 100%;
-  height: 0.5em;
-  border-radius: 5em;
+  height: 0.5rem;
+  border-radius: 5rem;
   background-color: #fff;
   margin: 15px 0;
 `;
 const Bar = styled.div<IStyleProps>`
   width: ${(props) => ((100 / props.total) * props.current).toFixed(2)}%;
   height: 100%;
-  border-radius: 5em;
+  border-radius: 5rem;
   background-color: #009bfb;
   transition: 0.5s ease-in-out;
 `;
@@ -35,22 +37,19 @@ const IconBox = styled.div<IStyleProps>`
   & > p {
     color: #009bfb;
     font-weight: 600;
-    font-size: 1em;
-    line-height: 1.25em;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 `;
 const Icon = styled.img.attrs({
   src: airplane,
 })`
-  width: 2em;
+  width: 2rem;
 `;
 
 const StatusBar: React.FC<IProps> = ({ totalCount, currentCount }) => {
-  useEffect(() => {
-    return true;
-  }, [currentCount]);
   return (
-    <>
+    <StatusBox>
       <IconBox total={totalCount} current={currentCount}>
         <p>{currentCount}</p>
         <Icon />
@@ -58,7 +57,7 @@ const StatusBar: React.FC<IProps> = ({ totalCount, currentCount }) => {
       <Status>
         <Bar total={totalCount} current={currentCount}></Bar>
       </Status>
-    </>
+    </StatusBox>
   );
 };
 

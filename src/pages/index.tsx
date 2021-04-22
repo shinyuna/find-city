@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import { Helmet } from 'react-helmet';
-import styled from 'styled-components';
-import Layout from '../components/layout';
-import mainImage from '../images/back_b.jpg';
+import React from "react";
+import { Link } from "gatsby";
+import { Helmet } from "react-helmet";
+import styled from "styled-components";
+import Layout from "../components/layout";
+import mainImage from "../images/back_b.jpg";
 
 const Lading = styled.div`
   width: 100%;
@@ -15,21 +15,24 @@ const LadingTop = styled.div`
   height: 50%;
 `;
 const Title = styled.h1`
-  font-size: 4em;
+  font-size: 4rem;
   color: #fff;
   font-weight: 300;
-  margin-bottom: 0.5em;
+  margin-bottom: 2rem;
   & > span {
     font-weight: 600;
   }
+  @media (max-width: 330px) {
+    font-size: 3rem;
+  }
 `;
-const Button = styled(props => <Link {...props} />)`
+const Button = styled((props) => <Link {...props} />)`
   display: block;
   width: 75%;
-  padding: 1em;
+  padding: 1.5rem;
   border: none;
-  border-radius: 5em;
-  font-size: 1.25em;
+  border-radius: 5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #009bfb;
   text-align: center;

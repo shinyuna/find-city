@@ -4,6 +4,11 @@ import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
+  html {
+    @media (max-width: 576px) {
+      font-size: 14px;
+    }
+  }
   div {
     box-sizing: border-box;
   }
@@ -16,6 +21,11 @@ const Wrap = styled.div`
   height: 100vh;
   margin: 0 auto;
   flex: 0;
+  @media (max-width: 576px) {
+    display: block;
+    overflow: none;
+    width: 100%;
+  }
 `;
 const Container = styled.main`
   width: 100%;
