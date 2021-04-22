@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import airplane from "../images/airplane.png";
+import { pointColor } from "./layout";
 
 interface IProps {
   currentCount: number;
@@ -25,8 +26,8 @@ const Bar = styled.div<IStyleProps>`
   width: ${(props) => ((100 / props.total) * props.current).toFixed(2)}%;
   height: 100%;
   border-radius: 5rem;
-  background-color: #009bfb;
-  transition: 0.5s ease-in-out;
+  background-color: ${pointColor};
+  transition: .5s ease-in-out;
 `;
 const IconBox = styled.div<IStyleProps>`
   width: ${(props) => ((100 / props.total) * props.current).toFixed(2)}%;
@@ -34,8 +35,9 @@ const IconBox = styled.div<IStyleProps>`
   flex-direction: column;
   align-items: flex-end;
   text-align: center;
+  transition: .5s ease-in-out;
   & > p {
-    color: #009bfb;
+    color: ${pointColor};
     font-weight: 600;
     font-size: 1rem;
     line-height: 1.25rem;

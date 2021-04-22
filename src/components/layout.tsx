@@ -14,6 +14,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+export const pointColor = "#009bfb";
+
 const Wrap = styled.div`
   display: flex;
   align-items: center;

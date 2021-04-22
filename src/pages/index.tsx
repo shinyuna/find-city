@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import styled from "styled-components";
-import Layout from "../components/layout";
+import Layout, { pointColor } from "../components/layout";
 import mainImage from "../images/back_b.jpg";
 
 const Lading = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #009bfb;
+  background-color: ${pointColor};
 `;
 const LadingTop = styled.div`
   padding: 60px 20px 0;
@@ -34,7 +34,7 @@ const Button = styled((props) => <Link {...props} />)`
   border-radius: 5rem;
   font-size: 1.25rem;
   font-weight: 600;
-  color: #009bfb;
+  color: ${pointColor};
   text-align: center;
   text-decoration: none;
   background-color: #fff;
