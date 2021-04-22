@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "bali"
+  },
+  {
+    "id": 2,
+    "name": "london"
+  },
+  {
+    "id": 3,
+    "name": "newyork"
+  },
+  {
+    "id": 4,
+    "name": "paris"
+  },
+  {
+    "id": 5,
+    "name": "sanfran"
+  },
+  {
+    "id": 6,
+    "name": "seoul"
+  },
+  {
+    "id": 7,
+    "name": "taipei"
+  }
+]
