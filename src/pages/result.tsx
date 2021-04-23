@@ -6,6 +6,7 @@ import Layout, { pointColor } from "../components/layout"
 import { useSelector } from "react-redux"
 import { IRootState } from "../state"
 import { Loading } from "../components/loading"
+import SEO from "../components/seo"
 
 interface IMap {
   publicURL: string
@@ -37,7 +38,6 @@ const Button = styled(props => <Link {...props} />)`
 
 const ResultPage: React.VFC<PageProps> = ({ location }) => {
   const tempData = useSelector((state: IRootState) => state.temp)
-  console.log("🚀 ~ tempData", tempData)
   const [loading, setLoading] = useState(false)
   const [, city] = location.search.split("=")
   const [img, setImg] = useState<string | null>(null)
@@ -64,9 +64,7 @@ const ResultPage: React.VFC<PageProps> = ({ location }) => {
   }, [img])
   return (
     <Layout>
-      <Helmet>
-        <title>찰떡궁합 도시 결과</title>
-      </Helmet>
+      <SEO title="나의 찰떡궁합 도시 결과 🍡" />
       {loading ? (
         <Loading />
       ) : (

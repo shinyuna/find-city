@@ -3,6 +3,7 @@ module.exports = {
     title: "Find City",
     description:
       "This website is a test to find a destination that fits your preferences.",
+    author: "Yunadev",
   },
   plugins: [
     "gatsby-plugin-styled-components",
@@ -49,4 +50,4 @@ module.exports = {
       },
     },
   ],
-};
+}

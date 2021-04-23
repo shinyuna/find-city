@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import Layout, { pointColor } from "../components/layout"
 import mainImage from "../images/back_b.jpg"
+import SEO from "../components/seo"
 
 const Lading = styled.div`
   width: 100%;
@@ -57,9 +58,7 @@ const LandingBottom = styled.img.attrs({
 const IndexPage: React.VFC = () => {
   return (
     <Layout>
-      <Helmet>
-        <title>찰떡궁합 도시 찾기</title>
-      </Helmet>
+      <SEO title="찰떡궁합 도시 찾기" />
       <Lading>
         <LadingTop>
           <Title>

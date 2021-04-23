@@ -6,6 +6,7 @@ import Layout from "../components/layout"
 import StatusBar from "../components/statusBar"
 import { useDispatch } from "react-redux"
 import { tempActions } from "../state"
+import SEO from "../components/seo"
 
 const Qna = styled.div`
   display: flex;
@@ -106,9 +107,7 @@ const QnaPage: React.VFC<PageProps> = () => {
   )
   return (
     <Layout>
-      <Helmet>
-        <title>찰떡궁합 도시 찾는중</title>
-      </Helmet>
+      <SEO title="찰떡궁합 도시 찾는중" />
       <Qna>
         <StatusBar totalCount={totalCount} currentCount={current} />
         <QnaBox fade={animation}>
