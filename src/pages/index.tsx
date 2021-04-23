@@ -1,19 +1,19 @@
-import React from "react";
-import { Link } from "gatsby";
-import { Helmet } from "react-helmet";
-import styled from "styled-components";
-import Layout, { pointColor } from "../components/layout";
-import mainImage from "../images/back_b.jpg";
+import React from "react"
+import { Link } from "gatsby"
+import { Helmet } from "react-helmet"
+import styled from "styled-components"
+import Layout, { pointColor } from "../components/layout"
+import mainImage from "../images/back_b.jpg"
 
 const Lading = styled.div`
   width: 100%;
   height: 100%;
   background-color: ${pointColor};
-`;
+`
 const LadingTop = styled.div`
   padding: 60px 20px 0;
   height: 50%;
-`;
+`
 const Title = styled.h1`
   font-size: 4rem;
   color: #fff;
@@ -25,8 +25,8 @@ const Title = styled.h1`
   @media (max-width: 330px) {
     font-size: 3rem;
   }
-`;
-const Button = styled((props) => <Link {...props} />)`
+`
+const Button = styled(props => <Link {...props} />)`
   display: block;
   width: 75%;
   padding: 1.5rem;
@@ -45,14 +45,14 @@ const Button = styled((props) => <Link {...props} />)`
   &:focus {
     outline: none;
   }
-`;
+`
 const LandingBottom = styled.img.attrs({
   src: mainImage,
 })`
   width: 100%;
   height: 50%;
   object-fit: cover;
-`;
+`
 
 const IndexPage: React.VFC = () => {
   return (
@@ -72,7 +72,7 @@ const IndexPage: React.VFC = () => {
         <LandingBottom />
       </Lading>
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage

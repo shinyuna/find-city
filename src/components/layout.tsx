@@ -1,6 +1,6 @@
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import React from "react"
+import styled, { createGlobalStyle } from "styled-components"
+import reset from "styled-reset"
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -12,9 +12,9 @@ const GlobalStyle = createGlobalStyle`
   div {
     box-sizing: border-box;
   }
-`;
+`
 
-export const pointColor = "#009bfb";
+export const pointColor = "#009bfb"
 
 const Wrap = styled.div`
   display: flex;
@@ -28,15 +28,15 @@ const Wrap = styled.div`
     overflow: none;
     width: 100%;
   }
-`;
+`
 const Container = styled.main`
   width: 100%;
   height: 100%;
   max-height: 800px;
-`;
+`
 
 interface IProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode
 }
 
 const Layout: React.FC<IProps> = ({ children }) => {
@@ -47,7 +47,7 @@ const Layout: React.FC<IProps> = ({ children }) => {
         <Container>{children}</Container>
       </Wrap>
     </React.Fragment>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
