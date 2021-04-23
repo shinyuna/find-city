@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { graphql, Link, PageProps, useStaticQuery } from "gatsby";
-import { Helmet } from "react-helmet";
-import styled from "styled-components";
-import Layout, { pointColor } from "../components/layout";
+import React, { useEffect, useState } from "react"
+import { graphql, Link, PageProps, useStaticQuery } from "gatsby"
+import { Helmet } from "react-helmet"
+import styled from "styled-components"
+import Layout, { pointColor } from "../components/layout"
+import { useSelector } from "react-redux"
+import { IRootState } from "../state"
+import { Loading } from "../components/loading"
 
 interface IMap {
-  publicURL: string;
+  publicURL: string
 }
 
 const Result = styled.div`
@@ -15,8 +18,8 @@ const Result = styled.div`
   img {
     width: 100%;
   }
-`;
-const Button = styled((props) => <Link {...props} />)`
+`
+const Button = styled(props => <Link {...props} />)`
   display: block;
   width: 90%;
   padding: 1.5rem 0;
@@ -30,11 +33,14 @@ const Button = styled((props) => <Link {...props} />)`
   color: #fff;
   background-color: ${pointColor};
   cursor: pointer;
-`;
+`
 
 const ResultPage: React.VFC<PageProps> = ({ location }) => {
-  const [img, setImg] = useState<string | null>(null);
-  const [, city] = location.search.split("=");
+  const tempData = useSelector((state: IRootState) => state.temp)
+  console.log("🚀 ~ tempData", tempData)
+  const [loading, setLoading] = useState(false)
+  const [, city] = location.search.split("=")
+  const [img, setImg] = useState<string | null>(null)
   const {
     images: { nodes: resultImages },
   } = useStaticQuery(graphql`
@@ -45,24 +51,32 @@ const ResultPage: React.VFC<PageProps> = ({ location }) => {
         }
       }
     }
-  `);
+  `)
   useEffect(() => {
-    const { publicURL: resultImg } = resultImages.find((item: IMap) =>
-      item.publicURL.includes(city)
-    );
-    setImg(resultImg);
-  }, [img, location]);
+    setLoading(true)
+    setTimeout(() => {
+      const { publicURL: resultImg } = resultImages.find((item: IMap) =>
+        item.publicURL.includes(city)
+      )
+      setLoading(false)
+      setImg(resultImg)
+    }, 3000)
+  }, [img])
   return (
     <Layout>
       <Helmet>
         <title>찰떡궁합 도시 결과</title>
       </Helmet>
-      <Result>
-        {img && <img src={img} alt={city} />}
-        <Button to="/qna">테스트 다시 해보기</Button>
-      </Result>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Result>
+          {img && <img src={img} alt={city} />}
+          <Button to="/qna">테스트 다시 해보기</Button>
+        </Result>
+      )}
     </Layout>
-  );
-};
+  )
+}
 
-export default ResultPage;
+export default ResultPage
