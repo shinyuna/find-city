@@ -10,8 +10,8 @@ describe("<SEO />", () => {
     useStaticQuery.mockReturnValue({
       site: {
         siteMetadata: {
-          title: `Gatsby Starter Blog`,
-          description: `A starter blog demonstrating what Gatsby can do.`,
+          title: `말랑찰떡 성향 테스트`,
+          description: `나의 성향과 맞는 도시 찾기 테스트`,
         },
       },
     })
@@ -21,10 +21,8 @@ describe("<SEO />", () => {
 
     const { title, metaTags } = Helmet.peek()
 
-    expect(title).toBe("Gatsby Starter Blog")
-    expect(metaTags[0].content).toBe(
-      "A starter blog demonstrating what Gatsby can do."
-    )
+    expect(title).toBe("말랑찰떡 성향 테스트")
+    expect(metaTags[0].content).toBe("나의 성향과 맞는 도시 찾기 테스트")
     expect(metaTags.length).toBe(4)
   })
   it("should render OK with props", () => {

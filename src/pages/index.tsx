@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import Layout, { pointColor } from "../components/layout"
 import mainImage from "../images/back_b.jpg"

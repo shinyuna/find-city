@@ -1,0 +1,21 @@
+import React from "react"
+import { render } from "@testing-library/react"
+import { useStaticQuery } from "gatsby"
+import IndexPage from ".."
+
+describe("<IndexPage />", () => {
+  beforeAll(() => {
+    useStaticQuery.mockReturnValue({
+      site: {
+        siteMetadata: {
+          title: `말랑찰떡 성향 테스트`,
+          description: `나의 성향과 맞는 도시 찾기 테스트`,
+        },
+      },
+    })
+  })
+  it("renders OK", () => {
+    const { getByText } = render(<IndexPage />)
+    getByText("나랑 찰떡궁합 도시 알아보기")
+  })
+})

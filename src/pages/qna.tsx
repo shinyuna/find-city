@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react"
-import { graphql, navigate, PageProps, useStaticQuery } from "gatsby"
+import { graphql, navigate, useStaticQuery } from "gatsby"
 import styled, { css, keyframes } from "styled-components"
 import Layout from "../components/layout"
 import StatusBar from "../components/status-bar"
@@ -55,7 +55,7 @@ const Answer = styled.div`
     }
   }
 `
-const QnaPage: React.VFC<PageProps> = () => {
+const QnaPage: React.VFC = () => {
   const dispatch = useDispatch()
 
   const [current, setCurrent] = useState<number>(1)
@@ -84,6 +84,12 @@ const QnaPage: React.VFC<PageProps> = () => {
   useEffect(() => {
     dispatch(tempActions.clear())
   }, [])
+  useEffect(() => {
+    if (current > totalCount) {
+      const idx = getRandomInt(cityList.length - 1)
+      navigate(`/result?city=${cityList[idx].name}`)
+    }
+  }, [current])
 
   const onSelect = useCallback(
     (e: React.BaseSyntheticEvent) => {
@@ -91,11 +97,6 @@ const QnaPage: React.VFC<PageProps> = () => {
 
       setAnimation(false)
       dispatch(tempActions.save({ id: current, select: selectAnswer }))
-
-      if (current === totalCount) {
-        const idx = getRandomInt(cityList.length)
-        navigate(`/result?city=${cityList[idx].name}`)
-      }
 
       setTimeout(() => {
         setCurrent(prev => prev + 1)
@@ -106,7 +107,7 @@ const QnaPage: React.VFC<PageProps> = () => {
   )
   return (
     <Layout>
-      <SEO title="찰떡궁합 도시 찾는중" />
+      <SEO title="찰떡궁합 도시 찾는 중" />
       <Qna>
         <StatusBar totalCount={totalCount} currentCount={current} />
         <QnaBox fade={animation}>
@@ -115,6 +116,7 @@ const QnaPage: React.VFC<PageProps> = () => {
             {questionList[current - 1]?.answer.map(
               (answer: string, index: number) => (
                 <button
+                  role={`answer-button-${index}`}
                   id={index + ""}
                   key={index}
                   dangerouslySetInnerHTML={{ __html: answer }}

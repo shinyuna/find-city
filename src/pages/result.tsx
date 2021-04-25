@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { graphql, Link, PageProps, useStaticQuery } from "gatsby"
-import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import Layout, { pointColor } from "../components/layout"
 import { useSelector } from "react-redux"
@@ -39,11 +38,9 @@ const Button = styled(props => <Link {...props} />)`
 const ResultPage: React.VFC<PageProps> = ({ location }) => {
   const tempData = useSelector((state: IRootState) => state.temp)
   const [loading, setLoading] = useState(false)
-  const [, city] = location.search.split("=")
   const [img, setImg] = useState<string | null>(null)
-  const {
-    images: { nodes: resultImages },
-  } = useStaticQuery(graphql`
+  const [, city] = location.search.split("=")
+  const { images } = useStaticQuery(graphql`
     {
       images: allFile(filter: { base: { regex: "/result/" } }) {
         nodes {
@@ -52,16 +49,26 @@ const ResultPage: React.VFC<PageProps> = ({ location }) => {
       }
     }
   `)
+  const { publicURL: cityImage } = images.nodes.find((item: IMap) =>
+    item.publicURL.includes(city)
+  )
+  const waitSeconds = () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve("ok")
+      }, 3000)
+    })
+  }
   useEffect(() => {
     setLoading(true)
-    setTimeout(() => {
-      const { publicURL: resultImg } = resultImages.find((item: IMap) =>
-        item.publicURL.includes(city)
-      )
-      setLoading(false)
-      setImg(resultImg)
-    }, 3000)
-  }, [img])
+    waitSeconds().then(res => {
+      if (res === "ok") {
+        setLoading(false)
+        setImg(cityImage)
+      }
+    })
+    return () => setLoading(false)
+  }, [])
   return (
     <Layout>
       <SEO title="나의 찰떡궁합 도시 결과 🍡" />

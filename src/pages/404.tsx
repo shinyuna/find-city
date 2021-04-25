@@ -1,54 +1,50 @@
-import * as React from 'react';
-import { Link } from 'gatsby';
+import * as React from "react"
+import { Link } from "gatsby"
+import Layout from "../components/layout"
+import styled from "styled-components"
+import SEO from "../components/seo"
 
 // styles
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-};
+const NotFound = styled.div`
+  color: "#232129";
+  padding: "96px";
+  font-family: "-apple-system, Roboto, sans-serif, serif";
+  p {
+    margin-bottom: 48px;
+  }
+`
+const PageTitle = styled.h1`
+  margin-top: 0;
+  margin-bottom: 64px;
+  max-width: 320px;
+`
 
-const paragraphStyles = {
-  marginBottom: 48,
-};
-const codeStyles = {
-  color: '#8A6534',
-  padding: 4,
-  backgroundColor: '#FFF4DB',
-  fontSize: '1.25rem',
-  borderRadius: 4,
-};
-
-// markup
-const NotFoundPage = () => {
+const NotFoundPage: React.VFC = () => {
   return (
-    <main style={pageStyles}>
-      <title>Not found</title>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry{' '}
-        <span role="img" aria-label="Pensive emoji">
-          😔
-        </span>{' '}
-        we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === 'development' ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  );
-};
+    <Layout>
+      <SEO title="404: Page not found" />
+      <NotFound>
+        <PageTitle>Page not found</PageTitle>
+        <p>
+          Sorry{" "}
+          <span role="img" aria-label="Pensive emoji">
+            😔
+          </span>{" "}
+          we couldn’t find what you were looking for.
+          <br />
+          {process.env.NODE_ENV === "development" && (
+            <>
+              <br />
+              Try creating a page in src/pages/.
+              <br />
+            </>
+          )}
+          <br />
+          <Link to="/">Go home</Link>.
+        </p>
+      </NotFound>
+    </Layout>
+  )
+}
 
-export default NotFoundPage;
+export default NotFoundPage
