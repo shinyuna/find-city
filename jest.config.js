@@ -14,7 +14,10 @@ module.exports = {
   globals: {
     __PATH_PREFIX__: ``,
   },
-  setupFilesAfterEnv: [path.resolve(__dirname, "./tests/setup-test-env.js")],
+  setupFilesAfterEnv: [
+    "<rootDir>/tests/setup-test-env.js",
+    // path.resolve(__dirname, "./tests/setup-test-env.js"),
+  ],
   testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
   moduleFileExtensions: ["ts", "tsx", "js"],
   collectCoverageFrom: [
