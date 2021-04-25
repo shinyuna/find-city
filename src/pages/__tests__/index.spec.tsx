@@ -1,5 +1,5 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
 import { useStaticQuery } from "gatsby"
 import IndexPage from ".."
 
@@ -14,8 +14,12 @@ describe("<IndexPage />", () => {
       },
     })
   })
-  it("renders OK", () => {
+  it("renders OK", async () => {
     const { getByText } = render(<IndexPage />)
-    getByText("나랑 찰떡궁합 도시 알아보기")
+
+    await waitFor(() => {
+      expect(document.title).toBe("찰떡궁합 도시 찾기")
+      getByText("나랑 찰떡궁합 도시 알아보기")
+    })
   })
 })

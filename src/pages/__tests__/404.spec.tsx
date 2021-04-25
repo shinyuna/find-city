@@ -1,5 +1,5 @@
 import React from "react"
-import { render } from "@testing-library/react"
+import { render, waitFor } from "@testing-library/react"
 import { useStaticQuery } from "gatsby"
 import NotFoundPage from "../404"
 
@@ -14,11 +14,15 @@ describe("<NotFoundPage />", () => {
       },
     })
   })
-  it("renders OK", () => {
+  it("renders OK", async () => {
     const { container, getByText } = render(<NotFoundPage />)
-    getByText("Page not found")
-    expect(container).toHaveTextContent(
-      "we couldn’t find what you were looking for."
-    )
+
+    await waitFor(() => {
+      expect(document.title).toBe("404: Page not found")
+      getByText("Page not found")
+      expect(container).toHaveTextContent(
+        "we couldn’t find what you were looking for."
+      )
+    })
   })
 })
