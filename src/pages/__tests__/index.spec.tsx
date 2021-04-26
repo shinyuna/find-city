@@ -1,8 +1,7 @@
 import React from "react"
 import { render, RenderResult, waitFor } from "@testing-library/react"
-import { Link, navigate, useStaticQuery } from "gatsby"
+import { useStaticQuery } from "gatsby"
 import IndexPage from ".."
-import userEvent from "@testing-library/user-event"
 
 describe("<IndexPage />", () => {
   let renderResult: RenderResult
