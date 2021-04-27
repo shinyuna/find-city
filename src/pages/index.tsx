@@ -12,7 +12,7 @@ const Lading = styled.div`
 `
 const LadingTop = styled.div`
   padding: 60px 20px 0;
-  height: 50%;
+  height: 55%;
 `
 const Title = styled.h1`
   font-size: 4rem;
@@ -50,7 +50,6 @@ const LandingBottom = styled.img.attrs({
   src: mainImage,
 })`
   width: 100%;
-  height: 50%;
   object-fit: cover;
 `
 
