@@ -49,7 +49,7 @@ const ResultPage: React.VFC<PageProps> = ({ location }) => {
       }
     }
   `)
-  const { publicURL: cityImage } = images.nodes.find((item: IMap) =>
+  const cityImage = images.nodes.find((item: IMap) =>
     item.publicURL.includes(city)
   )
   const waitSeconds = () => {
@@ -64,7 +64,7 @@ const ResultPage: React.VFC<PageProps> = ({ location }) => {
     waitSeconds().then(res => {
       if (res === "ok") {
         setLoading(false)
-        setImg(cityImage)
+        setImg(cityImage.publicURL)
       }
     })
     return () => setLoading(false)
