@@ -3,3 +3,5 @@ node_modules/
 .eslintcache
 coverage/
 public
+cypress/screenshots
+cypress/videos
