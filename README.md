@@ -1,54 +1,45 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# 말랑찰떡 나만의 도시 찾기
 
-## 🚀 Quick start
+## **프로젝트 실행**
 
-1.  **Create a Gatsby site.**
+```shell
+npm run dev
+```
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+## **unit 테스트 실행**
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+```shell
+npm run test
+```
 
-2.  **Start developing.**
+## **e2e 테스트 실행(cypress open)**
 
-    Navigate into your new site’s directory and start it up.
+```shell
+npm run test:e2e
+```
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+## **기술 스택**
 
-3.  **Open the code and start customizing!**
+- Gatsby
+- Redux toolkit
+- Styled components
+- Jest
+- Cypress
 
-    Your site is now running at http://localhost:8000!
+## **프로젝트 후기**
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+```
+검색엔진 최적화(SEO) 고려하기 위해 Next.js(서버 사이드 렌더) 와 Gatsby(정적 사이트 생성기) 중에서 고민을 했는데, 이 프로젝트엔 Gatsby가 더 적합할 것 같아 Gatsby를 선택하게 되었습니다.
 
-4.  **Learn more**
+- 데이터 변경이 활발하지 않다.
+- 정적인 데이터가 많다.
+- 컨텐츠의 양이 많지 않다.
+- Next는 위 내용들과 반대 될 때 좀 더 매력적이라고 생각합니다.
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+이번 프로젝트를 통해 Gatsby를 처음 사용해봤는데
+Gatsby에서 제공하는 다양한 플러그인을 활용해 개발할 수 있는 것과
+GraphQL을 사용해서 데이터소스에서 데이터를 가져오는 등 재밌었습니다.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+아직 더 공부할 부분이 많아 과제가 끝난 후에도 Gatsby를 통해 블로그를 만들어 볼 예정입니다!(TMI..XD)
+재밌고 유익한 시간을 즐길 수 있게 해주신 EDWO 감사드립니다!:)
+```
