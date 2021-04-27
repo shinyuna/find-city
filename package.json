@@ -16,8 +16,7 @@
     "lint": "eslint --ignore-path .gitignore . --ext ts --ext tsx --ext js --ext jsx",
     "test": "jest --verbose",
     "test:coverage": "jest --coverage --watchAll=false",
-    "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
+    "test:e2e": "cypress open"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.1",
